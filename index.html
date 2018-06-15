@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="hat">
+        <div class="hatContent">
+            <div class="hatGreenLine"></div>
+        <div class="hatLogo">
+            <!--logo here-->
+            <img src="logo.jpg" alt="" style="
+            height: 240px;
+            width: 400px;
+            float: left;
+            padding-left: 10px;
+            ">
+        </div>
+        <div class="hatTitle">
+            Телефонный справочник управления Росреестра по Пензенской области
+        </div>
+        <div class="hatGreenLine"></div>
+        <div class="clear"></div>
+    </div>
+    <div class="hatSplitter"></div>
+    </div>
+    <div class="main">
+        <script type="text/javascript" src="jsmain.js"></script>
+        <!-- конкатенация -->
+        {{"hello" + "world"}}
+        <br>
+        <hr>
+        <!-- биндинг значения -->
+        <input type="text" ng-model="hello">
+        {{hello}}
+        <br>
+        <hr>
+        <div ng-controller="testCtrl">
+            {{hello}}
+        </div>
+    </div>
+</body>
+</html>
