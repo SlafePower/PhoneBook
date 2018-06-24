@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html>
 <head>
     <meta charset="UTF-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.js" type="text/javascript"></script> -->
+    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="jsmain.js" type="text/javascript"></script>
     <link rel="stylesheet" href="style.css">
+    <!-- <script href="cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/css/foundation.min.css"></script> -->
+    <!-- <script href="cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script> -->
     <title>Document</title>
 </head>
-<body>
+<body ng-app="app">
     <div class="hat">
         <div class="hatContent">
             <div class="hatGreenLine"></div>
@@ -28,7 +33,7 @@
     <div class="hatSplitter"></div>
     </div>
     <div class="main">
-        <script type="text/javascript" src="jsmain.js"></script>
+        <!-- <script type="text/javascript" src="jsmain.js"></script> -->
         <!-- конкатенация -->
         {{"hello" + "world"}}
         <br>
@@ -38,9 +43,73 @@
         {{hello}}
         <br>
         <hr>
-        <div ng-controller="testCtrl">
+        <!-- <div ng-controller="testCtrl">
             {{hello}}
-        </div>
+        </div> -->
     </div>
+
+    <div ng-app="app" ng-controller="phonebookCtrl">
+  
+        <form>
+            <div class="row">
+                <div class="small-3 columns">
+                    <label class="right inline">ФИО</label>
+                </div>
+                <div class="small-9 columns">
+                    <input type="text" ng-model="name" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns">
+                    <label class="right inline">№ телефона</label>
+                </div>
+                <div class="small-9 columns">
+                    <input type="text" ng-model="phone" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns">
+                    <label class="right inline">Эл. почта</label>
+                </div>
+                <div class="small-9 columns">
+                    <input type="text" ng-model="email" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns"></div>
+                <div class="small-9 columns">
+                    <button class="small radius" ng-click="addNewPerson()" ng-hide="currentPersonId > -1">Добавить</button>
+                    <button class="small radius" ng-click="savePerson()" ng-show="currentPersonId > -1">Сохранить</button>
+                </div>
+            </div>
+        </form>
+        
+        <table id="phonebook">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>ФИО</th>
+                <th>№ телефона</th>
+                <th>Эл. почта</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in phonebook">
+                <td>{{ $index + 1 }}</td>
+                <td>{{ person.name }}</td>
+                <td>{{ person.phone }}</td>
+                <td>{{ person.email }}</td>
+                <td>
+                    <ul class="button-group radius">
+                        <li><button class="tiny radius" ng-click="editPerson($index)">ред-ть</button></li>
+                        <li><button class="tiny radius alert" ng-click="deletePerson($index)">удалить</button></li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+        
+        </div>
 </body>
 </html>
