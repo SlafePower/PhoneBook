@@ -1,8 +1,7 @@
 var app = angular.module('app', []);
-
-app.controller
 // angular.module('ng').filter('tel', function (){});
 app.controller('phonebookCtrl', function($scope){
+  document.getElementById('editPanel').hidden = true;
     $scope.currentPersonId = -1;
     $scope.phonebook = [];
     $scope.addNewPerson = function() {
@@ -30,6 +29,7 @@ app.controller('phonebookCtrl', function($scope){
       }
     }
     $scope.editPerson = function ( id ) {
+      document.getElementById('editPanel').hidden = false;
       $scope.currentPersonId = id;
       $scope.name = $scope.phonebook[id].name;
       $scope.phone = $scope.phonebook[id].phone;
@@ -37,5 +37,18 @@ app.controller('phonebookCtrl', function($scope){
     }
     $scope.deletePerson = function( id ) {
       $scope.phonebook.splice( id, 1 );
+    }
+
+    $scope.editMode = function() {
+      var panel = document.getElementById('editPanel');
+      var button = document.getElementById('editButton')
+      if (panel.hidden == true) {
+        panel.hidden = false;
+        button.innerText = "Сохранить";
+      } else {
+        // Здесь будет происходить оправка данных на сервер
+        panel.hidden = true;
+        button.innerText = "Изменить";
+      }
     }
   })

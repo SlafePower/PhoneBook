@@ -33,7 +33,6 @@
     <div class="hatSplitter"></div>
     </div>
     <div class="main">
-        <!-- <script type="text/javascript" src="jsmain.js"></script> -->
         <!-- конкатенация -->
         {{"hello" + "world"}}
         <br>
@@ -48,9 +47,13 @@
         </div> -->
     </div>
 
+
+
     <div ng-app="app" ng-controller="phonebookCtrl">
-  
-        <form>
+  <!-- <button id="editButton" ng-click="editMode()" style="
+  float: left;
+  ">Изменить</button> -->
+        <form id="editPanel">
             <div class="row">
                 <div class="small-3 columns">
                     <label class="right inline">ФИО</label>
@@ -85,7 +88,9 @@
         </form>
         
         <table id="phonebook">
-        <thead>
+        <thead style="
+        background-color: lightgreen;
+        ">
             <tr>
                 <th>№</th>
                 <th>ФИО</th>
@@ -109,6 +114,9 @@
             </tr>
         </tbody>
         </table>
+        <button id="editButton" ng-click="editMode()" style="
+  float: left;
+  ">Изменить</button>
         
         </div>
 </body>
