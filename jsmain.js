@@ -1,10 +1,14 @@
-// const fs = require('fs');ы
+// Создание приложения, отвечающего за телефонный справочник и его функционал
 var app = angular.module('app', []);
-// angular.module('ng').filter('tel', function (){});
+
+// Добавление контроллера телефонной книги
 app.controller('phonebookCtrl', function($scope){
+
   document.getElementById('editPanel').hidden = true;
     $scope.currentPersonId = -1;
     $scope.phonebook = [];
+
+    // Функция доавления нового контакта
     $scope.addNewPerson = function() {
       if ( $scope.name != '' ) {
         $scope.phonebook.push({
@@ -17,6 +21,8 @@ app.controller('phonebookCtrl', function($scope){
         $scope.email = '';
       }
     }
+
+    // Функция сохранения сформированного контакта
     $scope.savePerson = function() {
       if( $scope.currentPersonId > -1 ){
         var id = $scope.currentPersonId;
@@ -29,6 +35,8 @@ app.controller('phonebookCtrl', function($scope){
         $scope.currentPersonId = -1;
       }
     }
+
+    // Функция изменения контакта
     $scope.editPerson = function ( id ) {
       document.getElementById('editPanel').hidden = false;
       $scope.currentPersonId = id;
@@ -36,10 +44,13 @@ app.controller('phonebookCtrl', function($scope){
       $scope.phone = $scope.phonebook[id].phone;
       $scope.email = $scope.phonebook[id].email;
     }
+
+    // Функция удаления контакта
     $scope.deletePerson = function( id ) {
       $scope.phonebook.splice( id, 1 );
     }
 
+    // Функция включения режима редактирования телефонной книги
     $scope.editMode = function() {
       var panel = document.getElementById('editPanel');
       var button = document.getElementById('editButton')
@@ -47,8 +58,9 @@ app.controller('phonebookCtrl', function($scope){
         panel.hidden = false;
         button.innerText = "Сохранить";
       } else {
+        // Неиспользуемый код отправки данных на серверную часть. Требует иной реализации
+
         // $http.get("test.json");
-        
         // $scope.phonebook.forEach(element => {
         //   var jsonElement = (JSON.stringify(element));
         //   require('fs').writeFile('test.txt', jsonElement, (err) => {

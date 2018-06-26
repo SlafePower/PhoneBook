@@ -2,14 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.js" type="text/javascript"></script> -->
-    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script> -->
+    <!-- Подключение модуля AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <!-- Подключение пользовательсской скриптовой части -->
     <script src="jsmain.js"></script>
+    <!-- Подключение стилей -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="panelStyle.css">
-    <!-- <script href="cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/css/foundation.min.css"></script> -->
-    <!-- <script href="cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script> -->
     <title>Document</title>
 </head>
 <body ng-app="app">
@@ -34,25 +33,7 @@
     <div class="hatSplitter"></div>
     </div>
     <div class="main">
-        <!-- конкатенация -->
-        <!-- {{"hello" + "world"}}
-        <br>
-        <hr> -->
-        <!-- биндинг значения -->
-        <!-- <input type="text" ng-model="hello">
-        {{hello}}
-        <br>
-        <hr> -->
-        <!-- <div ng-controller="testCtrl">
-            {{hello}}
-        </div> -->
-
-
-
     <div ng-app="app" ng-controller="phonebookCtrl">
-  <!-- <button id="editButton" ng-click="editMode()" style="
-  float: left;
-  ">Изменить</button> -->
         <form id="editPanel">
             <div class="row">
                 <div class="small-3 columns">
@@ -81,13 +62,16 @@
             <div class="row">
                 <div class="small-3 columns"></div>
                 <div class="small-9 columns">
+                    <!-- Функция добавления нового контакта -->
                     <button class="small radius" ng-click="addNewPerson()" ng-hide="currentPersonId > -1">Добавить</button>
+                    <!-- Функция сохранения контакта -->
                     <button class="small radius" ng-click="savePerson()" ng-show="currentPersonId > -1">Сохранить</button>
                 </div>
             </div>
         </form>
         
         <table id="phonebook">
+            <!-- Верхняя чатсь таблицы. Хранит столбцы с атрибутами -->
         <thead style="
         background-color: lightgreen;
         ">
@@ -99,6 +83,7 @@
                 <th></th>
             </tr>
         </thead>
+        <!-- Тело таблицы. Хранит информацию о контактах -->
         <tbody>
             <tr ng-repeat="person in phonebook">
                 <td>{{ $index + 1 }}</td>
@@ -106,16 +91,13 @@
                 <td>{{ person.phone }}</td>
                 <td>{{ person.email }}</td>
                 <td>
-                    <!-- <ul class="button-group radius">
-                        <li><button class="tiny radius" ng-click="editPerson($index)">ред-ть</button></li>
-                        <li><button class="tiny radius alert" ng-click="deletePerson($index)">удалить</button></li>
-                    </ul> -->
                     <button class="tiny radius" ng-click="editPerson($index)">ред-ть</button>
                     <button class="tiny radius alert" ng-click="deletePerson($index)">удалить</button>
                 </td>
             </tr>
         </tbody>
         </table>
+        <!-- Изменение/сохранение таблицы -->
         <button id="editButton" ng-click="editMode()" style="
   float: left;
   ">Изменить</button>
