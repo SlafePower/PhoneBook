@@ -1,3 +1,4 @@
+// const fs = require('fs');ы
 var app = angular.module('app', []);
 // angular.module('ng').filter('tel', function (){});
 app.controller('phonebookCtrl', function($scope){
@@ -46,6 +47,15 @@ app.controller('phonebookCtrl', function($scope){
         panel.hidden = false;
         button.innerText = "Сохранить";
       } else {
+        // $http.get("test.json");
+        
+        // $scope.phonebook.forEach(element => {
+        //   var jsonElement = (JSON.stringify(element));
+        //   require('fs').writeFile('test.txt', jsonElement, (err) => {
+        //     if (err) throw err;
+        //   });
+        // });
+        // alert('It\'s saved!');
         // Здесь будет происходить оправка данных на сервер
         panel.hidden = true;
         button.innerText = "Изменить";

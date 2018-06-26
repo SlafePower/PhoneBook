@@ -2,6 +2,10 @@ body {
     margin: 0;
 }
 
+.hat {
+    padding-bottom: 5%;
+}
+
 .hatLogo {
     height: 240px;
     float: left;   
@@ -44,15 +48,17 @@ form {
     padding: 8px 17px;
   }
   #phonebook {
-    margin: 0 auto;
-    margin-left: 20%;
+    max-width: 500px;
+    margin-left: 5%;
+    /* margin-left: 40%; */
     float: left;
+    font-size: 30px;
+  }
+
+  .contact {
+      border-bottom: 2px solid black;
   }
   #phonebook button.tiny {
     margin-bottom: 0;
     padding: 5px 10px;
-  }
-
-  #editPanel {
-      float: left;
   }
